@@ -1,27 +1,32 @@
-const stack = [];
+class Stack{
+    constructor(){
+        this.stack = []
 
-function push(value){
-    stack[stack.length] = value;
-}
-
-function pop(){
-    if(stack.length === 0){
-        console.log("Stack is empty");
-        return null;
     }
-    const top = stack[stack.length - 1];
-    stack.length --;
-    return top;
+    push(value){
+        this.stack[this.stack.length] = value;
+    }
 
+    pop(){
+        if(this.stack.length === 0){
+            console.log("Stack is empty");
+            return null;
+        }
+        const top = this.stack[this.stack.length - 1];
+        this.stack.length--;
+        return top;
+    }
+
+    printStack(){
+        console.log(this.stack);
+    }
+    
 }
 
-function printStack(){
-    console.log(stack);
-}
-
-push(10);
-push(20);
-push(30);
-printStack();
-console.log(pop());
-printStack();
+const s = new Stack();
+s.push(10);
+s.push(20);
+s.push(30);
+s.printStack();
+console.log(s.pop());
+s.printStack();
